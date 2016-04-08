@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+    
+}
+
+@using BotDetect.Web.Mvc;
+
+
+@model SystemFarma.Models.Usuario
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+          rel="stylesheet" type="text/css" />
+        <title>Systemfarma | @ViewBag.Title</title>
+        @Styles.Render("~/Content/css")
+        @Styles.Render("~/font-awesome/css")
+    </head>
+    <body class="gray-bg" data-feedly-mini="yes">
+
+        <div class="loginColumns animated fadeInDown">
+            <div class="row">
+
+                <div class="col-md-6">
+                    <h2 class="font-bold">Bem Vindo a SystemFarma</h2>
+
+                    <p>
+                        Você pode acessar com os 8 últimos digitos do seu cartão ou também digitar os 16 dígitos.
+                    </p>
+
+                    <p>
+                        Caso necessite cadastrar confirme se seu superior já liberou seu CPF no seu RH.
+                    </p>
+
+                    <p>
+                        <small>Para dúvidas ou dificuldades acesse<a href="#">Redirecionar</a>.</small>
+                    </p>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="ibox-content">
+                        <form class="m-t" role="form" action="/login/AutenticaUsuario" method="post">
+                            <div class="form-group">
+                                @Html.TextBoxFor(u => u.Cartao, new { @class = "form-control", placeholder = "Cartão", required = "", name = "cartao" })
+                                @Html.ValidationMessage("CartaoInvalido")
+                            </div>
+                            <div class="form-group">
+                                @Html.TextBoxFor(u => u.Senha, new { @class = "form-control", placeholder = "Senha", required = "", name = "senha" })
+                            </div>
+
+                            @Html.ValidationMessage("Erro")
+
+
+                            <div class="form-group">
+                                    @{ MvcCaptcha exampleCaptcha = new MvcCaptcha("ExampleCaptcha"); }
+                                    @Html.Captcha(exampleCaptcha)
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-sm-6">
+                                    @Html.TextBox("CaptchaCode")
+                                </div>
+
+                                <button type="submit" class="btn btn-info block m-b col-sm-offset-8">
+                                    Acessar 
+                                </button>
+                            </div>
+
+                            <div class="form-group">
+                                <a href="/Usuario/Cadastro" class="col-sm-6">
+                                    <small>Esqueceu sua senha?</small>
+                                </a>
+                                <a href="/Usuario/Cadastro" class="col-sm-6">
+                                    <small>Crie uma conta</small>
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    Systemfarma Administradora de Serviços LTDA
+                </div>
+                <div class="col-md-6 text-right">
+                    <small>© 2015-2016</small>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

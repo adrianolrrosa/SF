@@ -1,0 +1,42 @@
+﻿<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <span class="clear">
+                            <div class="animated bounceInLeft">
+                                <img src="~/img/Bandeira/bandeira_systemfarma.png" class="img-thumbnail img-responsive" />
+                            </div>
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                        <li><a href="~/Login/Index">Sair</a></li>
+                    </ul>
+                </div>
+                <div class="logo-element">
+                    LOGOTIPO
+                </div>
+            </li>
+            <li class="@Html.IsSelected(action: "RedeEstabelecimentos")">
+                <a href="@Url.Action("RedeDeEstabelecimentos", "Usuario")"><i class="fa fa-institution"></i> <span class="nav-label">Rede de Estabelecimentos</span> </a>
+            </li>
+            <li class="@Html.IsSelected(action: "ConsultarGastos")">
+                <a href="@Url.Action("ConsultarGastos", "Usuario")"><i class="fa fa-usd"></i> <span class="nav-label">Consultar Gastos</span></a>
+            </li>
+            <li class="@Html.IsSelected(action: "ConsultarSaldo")">
+                <a href="@Url.Action("ConsultarSaldo", "Usuario")"><i class="fa fa-money"></i> <span class="nav-label">Consultar Saldo</span></a>
+            </li>
+            <li class="@Html.IsSelected(action: "AlterarCadastro")">
+                <a href="@Url.Action("AlterarCadastro", "Usuario")"><i class="fa fa-user"></i> <span class="nav-label">Alterar Cadastro</span></a>
+            </li>
+            <li class="@Html.IsSelected(action: "TrocarSenha")">
+                <a href="@Url.Action("TrocarSenha", "Usuario")"><i class="fa fa-eye"></i> <span class="nav-label">Trocar Senha</span></a>
+            </li>
+            <li class="@Html.IsSelected(action: "CartaoAdicional")">
+                <a href="@Url.Action("CartaoAdicional", "Usuario")"><i class="fa fa-credit-card"></i> <span class="nav-label">Cartão Adicional</span></a>
+            </li>
+            
+        </ul>
+    </div>
+</nav>

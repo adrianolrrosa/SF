@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = null;
+
+}
+
+@using BotDetect.Web.Mvc;
+
+
+@model SystemFarma.Models.Usuario
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="@BotDetect.Web.CaptchaUrls.Absolute.LayoutStyleSheetUrl"
+          rel="stylesheet" type="text/css" />
+    <title>INSPINIA | @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/font-awesome/css")
+</head>
+<body class="gray-bg" data-feedly-mini="yes">
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="ibox float-e-margins">
+                </div>
+                <div class="ibox-content">
+                    <form method="get" class="form-horizontal" action="/usuario/cadastrar" method="post">
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <div class="text-center wrapper-content">
+                                    <img src="~/img/Cartoes/cartaosystemfarma.png" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Nome</label>
+                            <div class="col-sm-7 col-sm-offset-2">@Html.TextBoxFor(u => u.Nome, new { @class = "form-control" })</div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Cartão</label>
+                            <div class="col-sm-7 col-sm-offset-2">@Html.TextBoxFor(u => u.Cartao, new { @class = "form-control" })</div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">CPF</label>
+                            <div class="col-sm-7 col-sm-offset-2">@Html.TextBoxFor(u => u.CPF, new { @class = "form-control" })</div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">E-mail</label>
+                            <div class="col-sm-8 col-sm-offset-1">@Html.TextBoxFor(u => u.Email, new { @class = "form-control" })</div>
+                        </div>
+                        @Html.ValidationMessage("Erro")
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Confirmar E-mail</label>
+                            <div class="col-sm-8 col-sm-offset-1">@Html.TextBoxFor(u => u.Email, new { @class = "form-control" })</div>
+                        </div>
+                        @Html.ValidationMessage("Erro")
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-info btn-circle btn-lg col-sm-2 col-sm-offset-4"><i class="fa fa-check"></i></button>
+                            <a href="~/Login/Index" class="btn btn-danger btn-circle btn-lg col-sm-2 col-sm-offset-4"><i class="fa fa-times"></i></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-3">
+            Systemfarma Administradora de Serviços LTDA
+        </div>
+        <div class="col-md-3 text-right">
+            <small>© 2015-2016</small>
+        </div>
+    </div>
+    </div>
+
+</body>
+</html>
